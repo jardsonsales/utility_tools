@@ -3,7 +3,7 @@
     import BackButton from "$lib/components/BackButton.svelte";
 
     let result = $state("");
-    let length = $state(18);
+    let length = $state(25);
     let uppercase = $state(true);
     let lowercase = $state(true);
     let numbers = $state(true);
