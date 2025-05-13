@@ -29,7 +29,6 @@
             retVal += charset.charAt(Math.floor(Math.random() * n));
         }
 
-        console.log(retVal.match(/[A-Z]/g));
         if(lowercase && retVal.match(/[a-z]/g) == null) return generatePassword();
         if(uppercase && retVal.match(/[A-Z]/g) == null) return generatePassword();
         if(numbers && retVal.match(/[0-9]/g) == null) return generatePassword();
