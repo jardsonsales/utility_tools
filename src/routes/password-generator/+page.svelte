@@ -17,16 +17,24 @@
     }
 
     function generatePassword() {
+        if(length < 6) length = 6;
         var charset = "";
         if(lowercase) charset += "abcdefghijklmnopqrstuvwxyz";
         if(uppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         if(numbers) charset += "0123456789012345678901234567890123456789";
         if(symbols) charset += "%#!@_-())%#!@_%#!-)(";
-        
+
         var retVal = "";
         for (var i = 0, n = charset.length; i < length; ++i) {
             retVal += charset.charAt(Math.floor(Math.random() * n));
         }
+
+        console.log(retVal.match(/[A-Z]/g));
+        if(lowercase && retVal.match(/[a-z]/g) == null) return generatePassword();
+        if(uppercase && retVal.match(/[A-Z]/g) == null) return generatePassword();
+        if(numbers && retVal.match(/[0-9]/g) == null) return generatePassword();
+        if(symbols && retVal.match(/[%#!@_\-()\$]/g) == null) return generatePassword();
+
         result = retVal;
     }
 
