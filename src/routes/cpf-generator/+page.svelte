@@ -47,7 +47,7 @@
 <div class="main-card">
     <div class="result-container">
         <span id="result">{result}</span>
-        <button onclick="{copyClipboard}" class="btn btn-icon" id="clipboard" aria-label="Copy">
+        <button onclick="{copyClipboard}" class="btn btn-cpy btn-icon" id="clipboard" aria-label="Copy">
             <i class="{copyBtnIcon}"></i>
         </button>
     </div>
