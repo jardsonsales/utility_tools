@@ -2,6 +2,10 @@
     import Card from "./Card.svelte";
 </script>
 
+<svelte:head>
+	<title>Utility Tools</title>
+</svelte:head>
+
 <h1>Utility Tools</h1>
     
 <div class="cards-container">
