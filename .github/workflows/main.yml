@@ -1,0 +1,37 @@
+name: Deploy 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Audit packages
+        run: npm audit
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.ftp_host }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_pass }}
+          local-dir: ./build/
+          server-dir: /public_html/
