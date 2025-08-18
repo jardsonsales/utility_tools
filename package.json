@@ -25,6 +25,7 @@
 		"cookie": "0.7.0"
 	},
 	"dependencies": {
+		"svelte-jsoneditor": "^3.8.0",
 		"svelte-loading-spinners": "^0.3.6"
 	}
 }
