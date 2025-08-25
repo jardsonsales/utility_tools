@@ -8,6 +8,7 @@
 
     onMount(() => {
         document.documentElement.style.setProperty("--jse-font-size-mono", "1.2rem");
+        document.documentElement.style.setProperty("--jse-theme-color", "#4361ee");
     });
 
 </script>
