@@ -6,6 +6,7 @@
     let length = $state(25);
     let uppercase = $state(true);
     let lowercase = $state(true);
+    let onlyatof = $state(false);
     let numbers = $state(true);
     let symbols = $state(false);
     let copyBtnIcon = $state("far fa-clipboard");
@@ -19,8 +20,8 @@
     function generatePassword() {
         if(length < 6) length = 6;
         var charset = "";
-        if(lowercase) charset += "abcdefghijklmnopqrstuvwxyz";
-        if(uppercase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if(lowercase) charset += (onlyatof ? "abcdefabcdefabcdef" : "abcdefghijklmnopqrstuvwxyz");
+        if(uppercase) charset += (onlyatof ? "ABCDEFABCDEFABCDEF" : "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         if(numbers) charset += "0123456789012345678901234567890123456789";
         if(symbols) charset += "%#!@_-())%#!@_%#!-)(";
 
@@ -64,7 +65,7 @@
     <div class="form-box">
         <div class="form-control">
             <label for="length">Password Length</label>
-            <input bind:value="{length}" type="number" id="length" min="4" max="50">
+            <input bind:value="{length}" type="number" id="length" min="6" max="60">
         </div>
         <div class="form-control">
             <label for="uppercase">Include uppercase letters</label>
@@ -81,6 +82,10 @@
         <div class="form-control">
             <label for="symbols">Include symbols</label>
             <input bind:checked="{symbols}" type="checkbox" id="symbols">
+        </div>
+        <div class="form-control">
+            <label for="onlyatof">Only A to F letters</label>
+            <input bind:checked="{onlyatof}" type="checkbox" id="onlyatof">
         </div>
     </div>
     
